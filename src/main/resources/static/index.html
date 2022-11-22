@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paslaugis</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/screenSaver.css" />
+    <script defer src="./js/loadWorkDb.js"></script>
+    <script defer src="./js/loadEmployee.js"></script>
+
+    <script defer src="./js/slideOpenClose.js"></script>
+    <script defer src="./js/employeeSlide.js"></script>
+    <script defer src="./js/userCreateDeleteUpdate.js"></script>
+</head>
+
+<body>
+    <nav>
+        <section class="nav-section">
+            <div class="img-container">
+                <img src="./pic/hands.jpg" alt="">
+            </div>
+            
+            <div class="btn-container">
+                <button id="btn" onclick="openNavRegistracija()">Registracija</button>
+                <div id="myNavRegistracija" class="overlay overlayH">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavRegistracija()">&times;</a>
+                    <div class="overlay-content">
+                        <div style="cursor:pointer" onclick="openNavUzsiregistruoti()">
+                            Registruotis
+                        </div>
+
+                        <div style="cursor:pointer" onclick="openNavAtnaujinti()">
+                            Atnaujinti
+                        </div>
+                        
+                        <div style="cursor:pointer" onclick="openNavIssiregistruoti()">
+                            Išsiregistruoti
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-registration">
+                <div id="myNavUzsiregistruoti" class="overlay overlayH">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavUzsiregistruoti()">&times;</a>
+                    <div class="overlay-content">
+                        <h1>Vartotojo sukūrimas:</h1>
+
+                        <input type="text" id="nameCreate" name="name" required minlength="4" 
+                        maxlength="25" size="25" placeholder="Vardas">
+                    
+                        <p></p>
+
+                        <input type="text" id="lastNameCreate" name="lastName" required minlength="4" 
+                        maxlength="25" size="25" placeholder="Pavardė">
+                    
+                        <p></p>
+
+                        <input type="text" id="userNameCreate" name="userName" required minlength="4" 
+                        maxlength="25" size="25" placeholder="Slapyvardis">
+                    
+                        <p></p>
+                    
+                        <input type="password" id="passwordCreate" name="password" minlength="8" 
+                        maxlength="25" required size="25" placeholder="Slaptažodis"> 
+                    
+                        <p></p>
+        
+                        <button class="userCreateButton" style="font-weight:bold;">Sukurti</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-check-out">
+                <div id="myNavAtnaujinti" class="overlay overlayH">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavAtnaujinti()">&times;</a>
+                    <div class="overlay-content">
+                        <h1>Duomenų atnaujinimas:</h1>
+
+                        <input type="text" id="userNameUpdateOld" name="name" required minlength="4" 
+                        maxlength="25" size="25" placeholder="Esamas slapyvardis">
+                    
+                        <p></p>
+                    
+                        <input type="password" id="passwordUpdateOld" name="password" minlength="8" 
+                        maxlength="25" required size="25" placeholder="Esamas slaptažodis"> 
+                    
+                        <p></p>
+
+                        <input type="text" id="userNameUpdateNew" name="name" required minlength="4" 
+                        maxlength="25" size="25" placeholder="Naujas slapyvardis">
+                    
+                        <p></p>
+                    
+                        <input type="password" id="passwordUpdateNew" name="password" minlength="8" 
+                        maxlength="25" required size="25" placeholder="Naujas slaptažodis"> 
+                    
+                        <p></p>
+        
+                        <button id="userUpdateButton" style="font-weight:bold;">Atnaujinti</button>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="user-check-out">
+                <div id="myNavIssiregistruoti" class="overlay overlayH">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavIssiregistruoti()">&times;</a>
+                    <div class="overlay-content">
+                        <h1>Vartotojo ištrynimas:</h1>
+
+                        <input type="text" id="nameDelete" name="name" required minlength="4" 
+                        maxlength="25" size="25" placeholder="Slapyvardis">
+                    
+                        <p></p>
+                    
+                        <input type="password" id="passwordDelete" name="password" minlength="8" 
+                        maxlength="25" required size="25" placeholder="Slaptažodis"> 
+                    
+                        <p></p>
+        
+                        <button id="userDeleteButton" style="font-weight:bold;">Ištrinti</button>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    </nav>
+    
+    <main>
+        <section class="main-section">
+            <div class="output-cointainer">
+                <div id="output"></div>
+            </div>
+
+            <div style="color: white;"  id="btn2" onclick="openNavInform()">
+                <div id="myNavInform" class="overlay overlayW">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavInform()">&times;</a>
+                    <div class="overlay-content">
+
+                        <div>
+                            <p id="slideNicName"></p>
+                            
+                            <div style="justify-items: center;">
+                                <img src="" alt="" id="slideImg">
+                            </div>
+
+                            <p id="toVoteCountGDB">
+                                10
+                            </p>
+
+                            <div id="aboutMe">about me</div>
+                            
+                            <p id="toVoteCount">
+                                0
+                            </p>
+
+                            <div id="plusMinus">
+                                <button id="buttonPlus">+</button>
+                                <button id="buttonMinus">-</button>
+                            </div>
+
+                            <div id="toVoteAbout">
+                                <p style="padding-bottom: 1em;">Balsavimo užskaitymui reikia suvesti 
+                                    žemiau nurodytus savo duomenis</p>
+
+                                <input type="text" id="userNameVote" name="name" required minlength="4" 
+                                maxlength="25" size="25" placeholder="Slapyvardis">
+                            
+                                <p style="padding-top: 1em;""></p>
+
+                                <input type="password" id="passwordVote" name="password" minlength="8" 
+                                maxlength="25" required size="25" placeholder="Slaptažodis"> 
+                            </div>
+
+                            <button id="userVoteButton" style="font-weight:bold; width: 7em;">Balsuoti</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <section class="footer-section-1">
+            <div>
+                <img src="pic/hands.jpg" alt="" class="myFPic">
+            </div>
+            
+            <div class="divLeft">
+                <span style="cursor:pointer" onclick="openNavApie()">
+                    Apie
+                </span>
+                <div id="myNavApie" class="overlay overlayW">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavApie()">&times;</a>
+                    <div class="overlay-content">
+                        <h1>Paslaugis.lt</h1>
+                        <div>
+                            Padedame kai to Jums labiausiai reikia. 
+                            Jeigu nori numesti svorio, o tavo šaldytuvas pilnas ledų, 
+                            tai Paslaugis.lt gali Jums su tuo padėti, nes mūsų kolektyve yra 
+                            daugiau nei vienas profesionalus ledų valgytojas. 
+                            Reikia paslaugos? → Paslaugis.lt geriausias Jūsų pasirinkimas.
+                        </div>
+                        <div>
+                            Tik prisiregistravę vartotojai gali įvertinti mūsų darbuotojus.
+                        </div>
+                    </div>
+                  </div>
+                
+                <div style="color: white;">|</div>
+                
+                <span style="cursor:pointer" onclick="openNavKontaktai()">
+                    Kontaktai
+                </span>
+                <div id="myNavKontaktai" class="overlay overlayW">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavKontaktai()">&times;</a>
+                    <div class="overlay-content">
+                      <h1>Kontaktai</h1>
+                      
+                      <div>UAB "Paslaugis.lt projektai"</div>
+                      <div>Paslaugininkų g. 7-n, LT-12345 Vilnius</div>
+                      <div>El. paštas: info@Paslaugis.lt</div>
+                      <div>Tel.: 860000068, skambinti I-V - 10.00-17.00</div>
+                      <div></div>
+                      <div>Įmonės kodas: 000000001</div>
+                      <div>PVM mokėtojo kodas: LT000000000001</div>
+                    </div>
+                  </div>
+                  
+            </div>
+        </section>
+
+        <section class="footer-section-2">
+            <div>© Copyright 2022 "Paslaugis.lt"</div>
+            
+            <div class="divLeft">
+                <a href="#">
+                    <img src="pic/icons/facebook.svg" alt="facebook">
+                </a>
+
+                <a href="#">
+                    <img src="pic/icons/twitter.svg" alt="twitter">
+                </a>
+
+                <a href="#">
+                    <img src="pic/icons/instagram.svg" alt="instagram">
+                </a>
+
+                <a href="#">
+                    <img src="pic/icons/tiktok.svg" alt="tiktok">
+                </a>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
